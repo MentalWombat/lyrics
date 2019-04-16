@@ -1,25 +1,24 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <div className="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+          <h1 className="navbar-brand mr-auto">Lyrics Finder</h1>
+          <form className="form-inline my-2 my-lg-0">
+            <input className="form-control mr-sm-2" type="text" placeholder="artist name" name="artist" required/>
+            <input className="form-control mr-sm-2" type="text" placeholder="track title" name="track" required/>
+            <button className="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+          </form>
+        </div>
+        <div className="container">
+          <div className="lyrics">
+            <h2>title</h2>
+            <div>some text</div>
+          </div>
+        </div>
       </div>
     );
   }
