@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Search from './Search';
 import './App.css';
 
 class App extends Component {
@@ -7,11 +8,7 @@ class App extends Component {
       <div className="App">
         <div data-testid="navbar" className="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
           <h1 data-testid="navbar-title" className="navbar-brand mr-auto">Lyrics Finder</h1>
-          <form data-testid="form" className="form-inline my-2 my-lg-0">
-            <input data-testid="form-artist" className="form-control mr-sm-2" type="text" placeholder="artist name" name="artist" required/>
-            <input data-testid="form-track" className="form-control mr-sm-2" type="text" placeholder="track title" name="track" required/>
-            <button data-testid="submit" className="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
-          </form>
+          <Search />
         </div>
         <div data-testid="container" className="container">
           <div data-testid="output" className="output">
