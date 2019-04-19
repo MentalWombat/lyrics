@@ -15,17 +15,22 @@ input {
   padding: 2em 0;
 }
 
+.lyrics {
+  padding-top: 1em;
+  white-space: pre-wrap;
+}
+
 @media (min-width: 576px) {
   input {
     margin-bottom: 0;
   }
   .container {
-    padding-top: 118px;
+    padding-top: 242px;
   }
 }
 
 @media (min-width: 634px) {
   .container {
-    padding-top: 64px;
+    padding-top: 70px;
   }
 }
