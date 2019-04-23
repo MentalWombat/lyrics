@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const Result = props => (
   props.text ? (
@@ -8,5 +9,11 @@ const Result = props => (
   </>
   ) : null
 )
+
+Result.propTypes = {
+  titleArtist: PropTypes.string.isRequired,
+  titleTrack: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
+}
 
 export default Result;
