@@ -44,7 +44,7 @@ class App extends Component {
           text: 'Sorry, nothing found',
           loading: false
         });
-        throw new Error("Not 200 response")  
+        throw new Error ("Something's wrong, status is not 200");
       } else {
         res.json()
         .then(json => {
