@@ -9,37 +9,23 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      artistValue: 'artist name',
-      trackValue: 'track title',
       title: '',
       text: null,
       loading: false
     }
-    this.handleChange = this.handleChange.bind(this);
     this.getLyrics = this.getLyrics.bind(this);
   }
 
-  handleChange(e) {
-    console.log(e.target.value);
+  getLyrics(input) {
+    // console.log({...data});
+    const {artist, track} = {...input};
     this.setState({
-      [e.target.name]: e.target.value,
-    })
-  }
-
-  getLyrics(e) {
-    e.preventDefault();
-    const { artistValue, trackValue } = this.state;
-    this.setState({
-      artistValue,
-      trackValue,
       loading: true,
     });
-    window.fetch(baseUrl + encodeURIComponent(artistValue) + "/" + encodeURIComponent(trackValue) + "?apikey=" + apiKey)
+    window.fetch(baseUrl + encodeURIComponent(artist) + "/" + encodeURIComponent(track) + "?apikey=" + apiKey)
     .then(res => {
       if (res.status !== 200) {
         this.setState({
-          artistValue: 'artist name',
-          trackValue: 'track title',
           title: '',
           text: 'Sorry, nothing found',
           loading: false
@@ -50,8 +36,6 @@ class App extends Component {
         .then(json => {
           console.log(json);
           this.setState({
-            artistValue: 'artist name',
-            trackValue: 'track title',
             title: `${json.result.artist.name} — ${json.result.track.name}`,
             text: json.result.track.text,
             loading: false
@@ -66,7 +50,7 @@ class App extends Component {
       <div className="App">
         <div data-testid="navbar" className="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
           <h1 data-testid="navbar-title" className="navbar-brand mr-auto">Lyrics Finder</h1>
-          <Search artistValue={this.state.artistValue} trackValue={this.state.trackValue} handleChange={this.handleChange} getLyrics={this.getLyrics} />
+          <Search getLyrics={this.getLyrics} />
         </div>
         <div data-testid="container" className="container">
           <div data-testid="output" className="output">
