@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { render } from 'react-testing-library';
 
 class Search extends Component {
   constructor(props) {
